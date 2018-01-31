@@ -28,38 +28,45 @@ namespace unit_converter
             InitializeComponent();
             foreach (string k in prefixes.Keys)
             {
-                comboBox1.Items.Add(k);
-                comboBox2.Items.Add(k);
+                comboBox3.Items.Add(k);
+                comboBox4.Items.Add(k);
             }
-            comboBox1.SelectedIndex = 4;
-            comboBox2.SelectedIndex = 4;
+            comboBox3.SelectedIndex = 4;
+            comboBox4.SelectedIndex = 4;
             update();        }
         void update()
         {
             try
             {
                 double d = double.Parse(textBox1.Text);
-                double d2 = d * prefixes[comboBox1.Text] / prefixes[comboBox2.Text];
-                label1.Text = d2.ToString();
+                double d2 = d * prefixes[comboBox3.Text] / prefixes[comboBox4.Text];
+                label2.Text = d2.ToString();
             }
             catch
             {
-                label1.Text = "";
+                label2.Text = "";
+            }
 
+        }
 
-          private void label1Click(object sender, EventArgs e)
+            private void Form1_Load(object sender, EventArgs e)
+            {
+
+            }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
             update();
         }
 
-          private void Form1_Load(object sender, EventArgs e)
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
-            update(); 
+            update();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            update();
         }
     }
-}
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
+    }
